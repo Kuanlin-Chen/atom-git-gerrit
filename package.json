@@ -1105,7 +1105,7 @@
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kuanlin-Chen/atom-git-gerrit.git"
+    "url": "https://github.com/Kuanlin-Chen/atom-git-gerrit.git"
   },
   "version": "0.2.0"
 }
