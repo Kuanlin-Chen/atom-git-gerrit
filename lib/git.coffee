@@ -110,7 +110,6 @@ callGit = (cmd, parser, nodatalog) ->
       return
 
 setPushOption = (topic,reviewer,wip,codereview,verified) ->
-  email = "@arimacomm.com.tw"
   option = ""
 
   if (topic || reviewer || wip || codereview || verified)
@@ -121,7 +120,12 @@ setPushOption = (topic,reviewer,wip,codereview,verified) ->
   if (topic)
     option = option.concat "topic=#{topic},"
   if (reviewer)
-    option = option.concat "r=#{reviewer}#{email},"
+    if reviewer.indexOf(",") != -1
+      list = reviewer.split ","
+      for r in list
+        option = option.concat "r=#{r},"
+    else
+      option = option.concat "r=#{reviewer},"
   if (wip)
     option = option.concat "wip,"
   if (codereview)
